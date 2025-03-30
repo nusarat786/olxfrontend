@@ -1,0 +1,139 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .product-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .header-info {
+    flex: 1;
+  }
+  
+  .header-info h5 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .header-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .seller-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .seller-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .chat-time {
+    text-align: right;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+    position: relative;
+  }
+  
+  .chat-message.left {
+    background-color: #f1f1f1; /* Light gray for other user's messages */
+    align-self: flex-start; /* Align to the left */
+  }
+  
+  .chat-message.right {
+    background-color: #e1ffc7; /* Light green for current user's messages */
+    align-self: flex-end; /* Align to the right */
+  }
+  
+  .message-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .message-status {
+    font-style: italic;
+  }
+  
+  .message-timestamp {
+    margin-left: 10px;
+  }
+  
+  .chat-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .chat-footer button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .chat-footer button:hover {
+    background-color: #0056b3;
+  }
+
+
+  

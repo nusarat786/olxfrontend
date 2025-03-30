@@ -1,0 +1,117 @@
+:root {
+  --font-dosis: 'Dosis', sans-serif;
+  --background-color-main: #F5F5F5;
+  --font-primary: 'Fira Sans', sans-serif;
+  --gray-color: #DEDEDE;
+  --border-color: #555555;
+  --gradient-1l: linear-gradient(90deg, rgba(255,90,95,1) 0%, rgba(193,131,159,1) 100%);
+  --gradient-2l: linear-gradient(90deg,rgba(193,131,159,1)  0%, rgba(255,90,95,1) 100%);
+  --box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  --gc1:rgba(193,131,159,1) ;
+  --gc2:rgba(255,90,95,1) ;
+}
+
+/* Custom Table Styling */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-primary);
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.custom-table th {
+  background: var(--gradient-1l);
+  color: white;
+  font-weight: 600;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: var(--background-color-main);
+}
+
+.custom-table tr:hover {
+  background-color: var(--gray-color);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .custom-table th,
+  .custom-table td {
+    white-space: nowrap;
+  }
+}
+
+/* Description Container */
+.description-container {
+    background-color: white; /* Use white background for contrast */
+  }
+  
+  /* Description Title */
+  .description-title {
+    font-family: var(--font-primary); /* Use theme font */
+    font-size: 1.5rem; /* Slightly larger font size */
+    font-weight: 600; /* Bold text */
+    color:var(--gc1); /* Use theme accent color (e.g., rgba(255,90,95,1)) */
+    margin-bottom: 15px; /* Space below the title */
+  }
+  
+  /* Description Content (pre tag) */
+  .description-contentp {
+    font-family: var(--font-primary); /* Use theme font */
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.6; /* Improve readability */
+    color: var(--border-color); /* Use theme text color */
+    white-space: pre-wrap; /* Preserve formatting and wrap text */
+    background-color: var(--background-color-main); /* Light background for content */
+    padding: 15px; /* Add padding for spacing */
+    border-radius: 5px; /* Rounded corners for content */
+    border: 1px solid var(--gray-color); /* Subtle border */
+    margin: 0; /* Remove default margin */
+    overflow-x: auto; /* Add horizontal scroll if content overflows */
+  }
+
+  .description-content {
+    font-family: var(--font-primary); /* Use theme font */
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.6; /* Improve readability */
+    color: var(--gc2); /* Use theme text color */
+    white-space: pre-wrap; /* Preserve formatting and wrap text */
+    overflow-x: auto; /* Add horizontal scroll if content overflows */
+    font-weight: 800;
+  }
+
+  .size-2{
+    font-size: 2rem;
+    font-weight: 750;
+  }
+
+  .chat-seller-button {
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Rounded corners */
+    background: var(--gradient-1l);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: var(--font-dosis);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .chat-seller-button:hover {
+    background: var(--gradient-2l);
+  }
+
+
+  

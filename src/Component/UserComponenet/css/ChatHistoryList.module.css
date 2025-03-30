@@ -1,0 +1,13 @@
+.listContainer {
+  padding: 20px;
+  border-radius: 12px;
+  font-family: var(--font-primary);
+}
+
+.listTitle {
+  font-family: var(--font-dosis);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gc1);
+  margin-bottom: 20px;
+}

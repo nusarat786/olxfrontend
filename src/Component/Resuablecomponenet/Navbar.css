@@ -1,0 +1,260 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  z-index: 1001; /* Ensure navbar is above the drawer and overlay */
+  margin-bottom: 2rem;
+}
+
+/* First Row */
+.navbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Hamburger and Logo Group */
+.hamburger-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between hamburger and logo */
+}
+
+/* Hamburger Menu */
+.navbar-toggler {
+  display: block !important; /* Force the hamburger menu to always be visible */
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  border: none;
+  color: var(--gc2);
+  font-size: 1.7rem;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Logout Button */
+.logout-button {
+  margin-left: auto; /* Push the logout button to the right */
+}
+
+/* Second Row (Search Form) */
+.search-row {
+  width: 100%;
+  margin-top: 0.5rem; /* Add spacing between rows */
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+}
+
+.search-form .form-control {
+  flex-grow: 1; /* Allow the search input to take up remaining space */
+  margin-right: 0.5rem; /* Add spacing between input and button */
+}
+
+/* Navigation Drawer */
+.navigation-drawer {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Hide drawer by default */
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 99999999999999999999;
+}
+
+.navigation-drawer.open {
+  left: 0; /* Show drawer when open */
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.drawer-header h5 {
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.drawer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-menu li {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.drawer-menu li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.border-none{
+  border: none!important;
+}
+
+.border-none:focus,.border-none:hover{
+  border: none!important;
+  box-shadow: none!important;
+  background-color: transparent!important;
+}
+
+.bg-nav{
+  background-color: #F5F5F5!important;
+}
+
+.rem-1{
+  font-size: 1.5rem!important;
+}
+
+/* Third Row (Category Buttons) */
+.category-row {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of buttons */
+  margin-top: 0.5rem; /* Add spacing between rows */
+  padding-bottom: 0.5rem; /* Add padding to avoid cutting off shadows */
+}
+
+.category-buttons {
+  display: inline-flex; /* Keep buttons in a single row */
+  gap: 0.5rem; /* Add spacing between buttons */
+}
+
+.category-button {
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Rounded corners */
+  background: var(--gradient-1l);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: var(--font-dosis);
+  font-size: 1rem;
+  font-weight: 600;
+
+}
+
+.login-button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  min-height: 2.7rem; /* Allows button to expand if needed */
+  box-shadow: var(--box-shadow);
+}
+
+.category-button:hover {
+  background-color: #e9ecef; /* Hover effect */
+}
+
+.location-selector{
+  border:none;
+  font-family: var(--font-dosis);
+  font-size: 1rem;
+  font-weight: 600 ;
+  color: white;
+  background: var(--gradient-1l);
+}
+
+.location-selector:focus{
+  border: none;
+  box-shadow: none;
+}
+
+
+.link-header{
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  font-family: var(--font-dosis);
+  color: black ;
+}
+
+
+.link-header:visited{
+  color: black !important;
+}
+
+/* .drawer-menu{
+  background: var(--gradient-2l);
+} */
+
+.select-cat{
+  display: block !important; /* Force the hamburger menu to always be visible */
+  border: none;
+  padding: 0.2rem;
+  border: none;
+  color: white ;
+  background: var(--gradient-2l);
+  font-size: 1.5rem;
+  width: 40vw;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.select-cat:focus {
+  outline: none;
+  border: none;
+}
+
+.option-cat{
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--font-dosis);
+  color: black;
+  padding: 0.2rem;
+  background-color: var(--gc2) !important;
+}
+
+
+.select option {
+  background-color: rgb(23, 207, 29);
+  color: black;
+}
+
+.link-header:hover{
+  color: black !important;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: block;
+}
+
+
+
+

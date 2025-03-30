@@ -1,0 +1,73 @@
+/* Custom Dropdown Container */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Adjust width as needed */
+}
+
+/* Dropdown Toggle */
+.dropdown-toggle {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-dosis);
+  border: none;
+  background: var(--gradient-1l);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.dropdown-toggle::after {
+  content: "▼";
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0; /* Changed from left: 0 to right: 0 */
+  width: 300px; /* Increased width */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 5px;
+  display: block !important;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+/* Options List */
+.options-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Option Item */
+.option-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option-item:hover {
+  background-color: #f0f0f0;
+}

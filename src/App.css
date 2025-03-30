@@ -1,0 +1,604 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+:root {
+  --font-dosis: 'Dosis', sans-serif;
+  --background-color-main: #F5F5F5;
+  --font-primary: 'Fira Sans', sans-serif;
+  --gray-color: #DEDEDE;
+  --border-color: #555555;
+  --gradient-1l: linear-gradient(90deg, rgba(255,90,95,1) 0%, rgba(193,131,159,1) 100%);
+  --gradient-2l: linear-gradient(90deg,rgba(193,131,159,1)  0%, rgba(255,90,95,1) 100%);
+  --box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  --gc1:rgba(193,131,159,1) ;
+  --gc2:rgba(255,90,95,1) ;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  /* background-color: var(--background-color-main); */
+}
+
+
+.main-div {
+  margin: 0;
+  padding: 0;
+  background-color: red; 
+}
+
+.font-dosis {
+  font-family: var(--font-dosis);
+}
+
+.font-h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #3C3C3C;
+  font-family: var(--font-dosis);
+  text-shadow: 0.05rem 0.05rem 0.05rem #000;
+}
+
+.font-h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  /* color: var(--gc2); */
+  font-family: var(--font-dosis);
+  background: var(--gradient-1l);
+  color: transparent; /* Hide default text color */
+  background-clip: text;
+  -webkit-background-clip: text; /* For Safari support */
+}
+
+.font-logo {
+  font-size: 1.8rem;
+  color: var(--gc2);
+}
+
+/* .font-logo:hover {
+  color:var(--gc1);
+} */
+
+.font-primary {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.background-color-logo {
+  background-color: var(--gray-color);
+}
+
+.border-color {
+  border-color: var(--border-color);
+}
+
+.login-input {
+  min-height: 2.7rem;
+  border-radius: 0.50rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-dosis);
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: var(--gray-color);
+  border: 0.1rem solid var(--gray-color);
+  outline: none; /* Remove default focus outline */
+  box-shadow:var(--box-shadow);
+  width: 100%;
+}
+
+.login-input:focus {
+  background-color: var(--gray-color) !important; /* Ensure it stays the same */
+  outline: none; /* Remove default focus outline */
+  border: 0.1rem solid var(--gray-color);
+  box-shadow:var(--box-shadow);
+}
+/* 
+.login-input::placeholder {
+  color: #DEDEDE;
+  opacity: 0.8;
+} */
+
+.login-button {
+  background: var(--gradient-1l);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  min-height: 2.7rem; /* Allows button to expand if needed */
+  font-family: var(--font-dosis);
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow: var(--box-shadow);
+}
+
+
+.login-button:hover{
+  background: var(--gradient-2l);
+}
+
+
+.link-primary{
+  color: var(--gc2) !important;
+}
+
+.link-primary:hover{
+  color: rgb(245, 140, 144) !important;
+}
+
+
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Stays on top */
+}
+
+.spinner-container {
+  background: var(--gradient-1l);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.4em solid var(--background-color-main); /* Light border */
+  border-top-color: var(--gc2) !important; /* Custom color */
+  animation: spin 1s linear infinite;
+  background-color: var(--gradient-1l);
+}
+
+/* Hide number input arrows */
+.phone-code::-webkit-outer-spin-button,
+.phone-code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.phone-code {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.upload-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-preview img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.image-drop-icon{
+  color: var(--gc2);
+  font-size: 1.3rem;
+  background-color: transparent !important;
+}
+/* Spinning animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+/* Add this to your global CSS file */
+.toast-slide-down {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+
+.bg-none{
+  background: none !important;
+}
+
+.toast-body{
+  border-radius: 0.5rem !important;
+}
+
+strong{
+  background: none;
+}
+
+.link-secondary{
+  color: var(--gc1) !important;
+}
+
+.link-secondary:hover{
+  color: var(--gc2) !important;
+}
+
+.btn-no-border{
+  border: none !important;
+} 
+
+.bg-light{
+  background-color: var(--background-color-main) !important;
+}
+
+/* Navigation Drawer */
+.navigation-drawer {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Start off-screen */
+  width: 300px; /* Drawer width */
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Open state for the drawer */
+.navigation-drawer.open {
+  left: 0; /* Slide in */
+}
+
+/* Drawer Header */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Drawer Menu */
+.drawer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-menu li {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.drawer-menu li a:hover {
+  color: #007bff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* Optional: Add hover effect for the Sell button */
+.hover-effect:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+/* Custom Styles */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  position: fixed;
+  z-index: 1000;
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: all 0.3s;
+  min-height: 100vh;
+  width: calc(100% - 250px);
+}
+
+.sidebar.collapsed {
+  margin-left: -250px;
+}
+
+.main-content.expanded {
+  margin-left: 0;
+  width: 100%;
+}
+
+.hover-effect {
+  transition: all 0.2s;
+  border-radius: 5px;
+  padding: 12px 15px !important;
+}
+
+.hover-effect:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 1001;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.sidebar-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    margin-left: -250px;
+  }
+  
+  .sidebar.mobile {
+    margin-left: 0;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+}
+
+
+.home-admin{
+  border: none;
+  background: none;
+}
+
+/* Styling for banner card */
+.banner-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between; /* Arrange content with space between */
+  align-items: center; /* Center content vertically */
+  box-shadow:
+    0px 6px 10px var(--gc1), /* Main shadow */
+    0px 1px 18px var(--gc2), /* Inset shadow */
+    0px 3px 5px  var(--gc1); /* Subtle bottom shadow */
+}
+
+/* Styling for banner image */
+.banner-image {
+  max-width: 45%; /* Adjust width of image */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Styling for welcome message */
+.welcome-msg-container {
+  flex: 1; /* Allow message to grow and occupy remaining space */
+}
+
+/* Increase font size of welcome message */
+.welcome-msg-container h4 {
+  font-size: 24px; /* Adjust font size as needed */
+}
+
+
+
+.clickable-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.clickable-card {
+  text-decoration: none;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  background: var(--gradient-1l);
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.clickable-card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent !important;
+  
+}
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: none;
+}
+
+.card-text {
+  margin-top: 10px;
+  color: black;
+  background: none;
+
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+
+.bx-main{
+  box-shadow:
+  0px 6px 10px var(--gc1), /* Main shadow */
+  0px 1px 18px var(--gc2), /* Inset shadow */
+  0px 3px 5px  var(--gc1); /* Subtle bottom shadow */
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.rem-two{
+  font-size: 3.5rem;
+  color: white;
+}
+
+
+/* Blur Background when modal is open */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+  backdrop-filter: blur(8px); /* Blurred background */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000; /* Make sure modal is above everything */
+}
+
+/* Modal Box */
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 50%;
+  max-height: 80vh;
+  overflow-y: auto; /* Scroll inside modal if content is too long */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* .modal-body{
+  background-color: white;
+}
+
+.bx-main{
+  background-color: white;
+}
+
+.tht{
+  background-color: white;
+} */
+
+.rem-ten{
+  font-size: 10rem;
+}
+
+/* ser select */
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  max-width: 100%; /* Ensure dropdown doesn't overflow */
+  width: 100%; /* Take full width of the parent */
+}
+
+/* Ensure dropdown items don't overflow */
+.dropdown-item {
+  white-space: normal; /* Allow text to wrap */
+}
