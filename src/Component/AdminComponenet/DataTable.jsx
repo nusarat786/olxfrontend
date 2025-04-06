@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const DataTable = ({ columns, data, onEdit, onDelete }) => {
+const DataTable = ({ columns, data, onEdit, onDelete, onAdd }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Default items per page
+  const [itemsPerPage, setItemsPerPage] = useState(100); // Default items per page
   const [searchTerm, setSearchTerm] = useState("");
 
   // Page size options
-  const pageSizeOptions = [5, 10, 20, 50, 100];
+  const pageSizeOptions = [100, 50, 25, 10, 5];
 
   // Filter data based on search term
   const filteredData = data?.filter((row) =>
@@ -41,13 +41,24 @@ const DataTable = ({ columns, data, onEdit, onDelete }) => {
       <div className="d-flex justify-content-between mb-3">
         <input
           type="text"
-          className="form-control w-50"
+          className="form-control login-input "
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearch}
+
         />
+
+      </div>
+
+      {/* Search and Page Size Dropdown */}
+      <div className="d-flex justify-content-between mb-3">
+        <button className="category-button" onClick={onAdd}>
+          Add
+        </button>
+
+
         <select
-          className="form-select w-auto"
+          className="form-select w-auto "
           value={itemsPerPage}
           onChange={handleItemsPerPageChange}
         >
@@ -61,15 +72,26 @@ const DataTable = ({ columns, data, onEdit, onDelete }) => {
 
       {/* Table */}
       <div className="table-responsive">
-        <table className="table table-striped table-bordered table-hover">
-          <thead className="thead-light">
-            <tr>
+        <table className="table ">
+          <thead className=""
+            style={{ background: 'var(--gradient-1l)', color: 'white' }}
+
+          >
+
+            <tr style={{ background: 'var(--gradient-1l)' }} >
               {columns.map((col, index) => (
-                <th key={index} className="text-center">
+                <th key={index} className="text-center"
+                  style={{ color: 'white', backgroundColor: 'var(--gc1)' }}
+                >
                   {col.label}
                 </th>
               ))}
-              <th className="text-center">Actions</th>
+              <th
+                // style={{color:'white',backgroundColor:'var(--gc2)'}}
+                className="text-center "
+                style={{ color: 'white', backgroundColor: 'var(--gc1)' }}
+
+              >Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -82,14 +104,14 @@ const DataTable = ({ columns, data, onEdit, onDelete }) => {
                 ))}
                 <td className="text-center">
                   <button
-                    className="btn btn-sm btn-primary mx-1"
-                    onClick={() => onEdit(row)}
+                    className="btn btn-sm btn-primary mx-1 mt-2 category-button"
+                    onClick={() => onEdit(row?.id)}
                   >
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-danger mx-1"
-                    onClick={() => onDelete(row)}
+                    className="btn btn-sm btn-danger mx-1 mt-2 category-button"
+                    onClick={() => onDelete(row?.id)}
                   >
                     Delete
                   </button>
@@ -108,12 +130,12 @@ const DataTable = ({ columns, data, onEdit, onDelete }) => {
             (_, i) => (
               <li
                 key={i}
-                className={`page-item ${
-                  currentPage === i + 1 ? "active" : ""
-                }`}
+                className={`page-item ${currentPage === i + 1 ? "category-button" : ""
+                  }`}
               >
                 <button
-                  className="page-link"
+                  className="category-button"
+                  // category-button
                   onClick={() => paginate(i + 1)}
                 >
                   {i + 1}

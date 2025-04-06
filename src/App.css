@@ -602,3 +602,8 @@ body {
 .dropdown-item {
   white-space: normal; /* Allow text to wrap */
 }
+
+.active {
+  background-color: var(--gc1) !important;
+  color: white;
+}

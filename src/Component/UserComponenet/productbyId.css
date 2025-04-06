@@ -8,7 +8,8 @@
   --gradient-2l: linear-gradient(90deg,rgba(193,131,159,1)  0%, rgba(255,90,95,1) 100%);
   --box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
   --gc1:rgba(193,131,159,1) ;
-  --gc2:rgba(255,90,95,1) ;
+  --gc3: #d36e9c;
+  --gc2:rgba(255,90,95,1);
 }
 
 /* Custom Table Styling */

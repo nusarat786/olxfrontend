@@ -76,7 +76,7 @@ const fetchFromApi2 = async (data,endPoint,dataname ,setData,setLoading,setToast
   setLoading(true);
   const mainLocation = JSON.parse(localStorage.getItem("mainLocation"));
   console.log(mainLocation);
-  const token = JSON.parse(localStorage.getItem("token")).value
+  const token = JSON.parse(localStorage.getItem("token"))?.value
   try {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}${endPoint}`,

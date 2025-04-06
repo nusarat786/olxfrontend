@@ -1,26 +1,50 @@
-import React, { use, useEffect } from "react";
-import Banner from "./Banner";
-import listSolid from '../../Images/list-solid.png';
-import DataTable from "./DataTable";
+import React, { use, useEffect, useState } from "react";
+import Banner from "../Banner";
+import listSolid from '../../../Images/list-solid.png';
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import LoadingSpinner from "../Helper/loadingSpinner";
-import { useForm } from "react-hook-form";
+import LoadingSpinner from "../../Helper/loadingSpinner";
+import { set, useForm } from "react-hook-form";
+import ToastmMessage from "../../Helper/ToastmMessage";
 
-const AdminEditCategory = () => {
+const AdminAddCategory = () => {
 
-    const { id } = useParams(); // Get the id from the URL
-    const categoryEndpoint = '/admin/category/getCategories'
+    const categoryEndpoint = `/admin/category/getCategoryById/`;
+    const [toastObject, setToastObject] = useState({
+            message: '',
+            show: false,
+          });
 
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
+        setValue,
     } = useForm();
 
 
 
     const navigate = useNavigate();
+    
+
+    const fetchCategory = async () => {
+        try {
+            const response = await axios.get(process.env.REACT_APP_API_URL + categoryEndpoint);
+            console.log(response.data)
+            const data = response.data?.data?.category
+            console.log(data)
+            setValue("name", data?.name);
+            setValue("description", data?.description);
+
+    
+        } catch (error) {
+            setToastObject({message: error?.response?.data?.message || 'An error occurred', show: true});
+        }finally{
+            
+        }
+    };
+
+
     // const fetchData = async () => {
     //     try {
     //       setIsSubmitting(true)
@@ -54,8 +78,6 @@ const AdminEditCategory = () => {
 
     useEffect(() => {
 
-        console.log("Fetching Categories", document.location.pathname)
-        //fetchData();
     }, []);
 
     const editCategory = (data) => {
@@ -79,18 +101,45 @@ const AdminEditCategory = () => {
         }
     }
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = async (data) => {
+
+        try{
+
+        const updateEndpoint = `/admin/category/postCategory`;
+        const adminToken = JSON.parse(localStorage.getItem('adminToken')).value;
+
+        const res = await axios.post(process.env.REACT_APP_API_URL + updateEndpoint, data, {
+            contenType: 'application/json',
+            headers: {
+                Authorization: `Bearer ${adminToken}`,
+            },
+        })
+
+        setToastObject({message: res?.data?.message, show: true});
+        navigate('/admin/category');
+    }catch(error){
+        setToastObject({message: error?.response?.data?.message || 'An error occurred', show: true});
+    }finally{
+        
+    }
+
+
+
     }
 
 
 
     return (
         <div className="container-fluid">
+            <LoadingSpinner isSubmitting={isSubmitting} />
+
+            {toastObject.show &&
+            <ToastmMessage message={toastObject.message} show={toastObject.show} onClose={() => setToastObject({ message: '', show: false })} />
+            }
             {/* <LoadingSpinner isSubmitting={isSubmitting} /> */}
             <div className="row">
                 <Banner
-                    bannerHeading="Edit Category"
+                    bannerHeading="Add Category"
                     imageUrl={listSolid}
                 />
 
@@ -98,11 +147,12 @@ const AdminEditCategory = () => {
                     <div className="mt-4">
                         {/* Email Input */}
                         <div>
+                            <label htmlFor="name" className="form-label">
+                                Category Name
+                            </label>
                             <input
                                 type="text"
                                 className={`login-input ${errors.name ? "is-invalid" : ""}`} // Adds Bootstrap's 'is-invalid' only if error exists
-                                placeholder="Email"
-                                autoComplete="off"
                                 {...register("name", {
                                     required: "category name is required",
                                     minLength: {
@@ -110,35 +160,34 @@ const AdminEditCategory = () => {
                                         message: "Must be at least 3 characters",
                                     },
                                 })}
+                                autoComplete="off"
                             />
                             {errors.name && (
-                                <p className="link-primary">{errors.email.name}</p>
+                                <p className="link-primary">{errors.name.message}</p>
                             )}
                         </div>
 
                         {/* Description Input */}
                         <div>
+
+                            <label htmlFor="description" className="form-label">
+                                Category Description
+                            </label>
                             <input
-                                type="password"
-                                className={`login-input ${errors.password ? "is-invalid" : ""}`}
-                                placeholder="Password"
+                                type="text"
+                                className={`login-input ${errors.description ? "is-invalid" : ""}`}
                                 autoComplete="off"
-                                {...register("password", {
-                                    required: "Password is required",
+                                {...register("description", {
+                                    required: "Description  is required",
                                     minLength: {
                                         value: 8,
                                         message: "Must be at least 8 characters",
                                     },
-                                    pattern: {
-                                        value:
-                                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d@#$!%*?&]{8,}$/,
-                                        message:
-                                            "Must contain at least one uppercase, one lowercase, one number, and one special character",
-                                    },
+                                    
                                 })}
                             />
-                            {errors.password && (
-                                <p className="link-primary">{errors.password.message}</p>
+                            {errors.description && (
+                                <p className="link-primary">{errors.description.message}</p>
                             )}
                         </div>
 
@@ -165,4 +214,4 @@ const AdminEditCategory = () => {
 };
 
 
-export default AdminEditCategory;
+export default AdminAddCategory;

@@ -11,8 +11,8 @@ import AdminSideBar from './Component/AdminComponenet/AdminSideBar';
 import Admin from './Component/AdminComponenet/Admin';
 import AdminHeader from './Component/AdminComponenet/AdminHeader';
 import AdminHome from './Component/AdminComponenet/AdminHome';
-import AdminCategory from './Component/AdminComponenet/AdminCategory';
-import AdminEditCategory from './Component/AdminComponenet/AdminEditCategory';
+import AdminEditCategory from './Component/AdminComponenet/Category/AdminEditCategory';
+
 import UserHeader from './Component/UserComponenet/UserHeader';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import GeolocationComponent from './Component/Resuablecomponenet/GeoLocationComponent';
@@ -34,6 +34,17 @@ import ProductByCategory from './Component/UserComponenet/ProductByCategory.jsx'
 import ProductSearch from './Component/UserComponenet/ProductSearch.jsx';
 import ProductLiked from './Component/UserComponenet/LikeProduct.jsx';
 import EditUser from './Component/AuthenticationComponenet/EditUser.jsx';
+import AdminCategory from './Component/AdminComponenet/Category/AdminCategory.jsx';
+import AdminAddCategory from './Component/AdminComponenet/Category/AdminAddCategory.jsx';
+import AdminSubCategory from './Component/AdminComponenet/SubCategory/AdminSubCategory.jsx';
+import AdminAddSubCategory from './Component/AdminComponenet/SubCategory/AdminAddCategory.jsx';
+import AdminEditSubCategory from './Component/AdminComponenet/SubCategory/AdminEditCategory.jsx';
+import AdminLocation from './Component/AdminComponenet/Location/AdminLocation.jsx';
+import AdminAddLocation from './Component/AdminComponenet/Location/AdminAddLocation.jsx';
+import AdminEditLocation from './Component/AdminComponenet/Location/AdminEditLocation.jsx';
+import AdminManagement from './Component/AdminComponenet/Admin/Admin.jsx';
+import AdminAdd from './Component/AdminComponenet/Admin/AdminAdd.jsx';
+import AdminEdit from './Component/AdminComponenet/Admin/AdminEdit.jsx';
 function Home() {
   return(
   <>
@@ -351,6 +362,119 @@ function App() {
           </AdminProtectedRoute>
         }
         />
+
+      <Route 
+        path="/admin/category/add" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminAddCategory />
+          </AdminProtectedRoute>
+        }
+        />
+
+        
+        
+      <Route 
+        path="/admin/sub-category" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminSubCategory />
+          </AdminProtectedRoute>
+        }
+        />
+        
+
+        <Route 
+        path="/admin/sub-category/add" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminAddSubCategory />
+          </AdminProtectedRoute>
+        }
+        />
+
+      <Route 
+        path="/admin/sub-category/:id" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminEditSubCategory />
+          </AdminProtectedRoute>
+        }
+        />
+
+
+      <Route 
+        path="/admin/location" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminLocation />
+          </AdminProtectedRoute>
+        }
+        />
+        
+      
+        <Route 
+        path="/admin/loaction/add" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminAddLocation />
+          </AdminProtectedRoute>
+        }
+        />
+
+      <Route 
+        path="/admin/location/:id" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminEditLocation />
+          </AdminProtectedRoute>
+        }
+        />
+
+      <Route 
+        path="/admin/admin" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminManagement/>
+          </AdminProtectedRoute>
+        }
+        />
+
+      <Route 
+        path="/admin/admins/add" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminAdd/>
+          </AdminProtectedRoute>
+        }
+        />  
+
+      <Route 
+        path="/admin/admin/:id" 
+        element={
+          <AdminProtectedRoute>
+            <AdminHeader/>
+            <AdminEdit/>
+          </AdminProtectedRoute>
+        }
+        /> 
+
+        
+
+
+
+
+
+
         <Route path="*" 
         element={<PublicRoute><LoginWithEmail /></PublicRoute>} 
         />

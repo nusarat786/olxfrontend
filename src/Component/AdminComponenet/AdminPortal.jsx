@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ClickableCard from './ClickableCard';
 
-const AdminPortal = () => {
+const AdminPortal = ({handleModal}) => {
 
   
   // Dummy data for demonstration
@@ -30,6 +30,8 @@ const AdminPortal = () => {
   };
 
   const redirectToLink2 = (link) => {
+
+
     const today = new Date();
     const currentDate = `${('0' + today.getDate()).slice(-2)}-${('0' + (today.getMonth() + 1)).slice(-2)}-${today.getFullYear()}`;
     window.location.href = `${link}?date=${currentDate}`;
@@ -45,6 +47,7 @@ const AdminPortal = () => {
             url={`/admin/category`}
             text={"Category"}
             ficon={"fa-solid fa-list"}
+            // handleModal={handleModal}
           />
           <ClickableCard
             url={`/admin/sub-category`}
@@ -57,9 +60,15 @@ const AdminPortal = () => {
             text={"Location"}
             ficon={"fa-solid fa-location-dot"}
         />
+
+      <ClickableCard
+            url={`/admin/admin`}
+            text={"Admin"}
+            ficon={"fa-solid fa-user"}
+        />
                
 
-          <ClickableCard
+        <ClickableCard
             url={`/admin/user`}
             text={"User"}
             ficon={"fa-solid fa-user"}
@@ -70,6 +79,8 @@ const AdminPortal = () => {
             text={"Analytix"}
             ficon={"fa-solid fa-chart-simple"}
         />
+
+        
         
         {/* <ClickableCard
             url={`/admin/employee/${emp._id}`}

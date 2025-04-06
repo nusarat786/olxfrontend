@@ -271,9 +271,12 @@ const ChatHistoryList = () => {
     <div className={styles.listContainer}>
       
       <h2 className={'font-h1 size-2 mb-4'}>Conversations</h2>
+      {chats.length === 0 && <h1 className="text-center">No Chats</h1>}
       {chats.map((chat) => (
         <ChatHistoryCard key={chat._id} chat={chat}  />
       ))}
+
+     
     </div>
     </>
   );

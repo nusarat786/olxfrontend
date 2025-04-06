@@ -40,7 +40,7 @@ const AdminHeader = () => {
                   <i  className="fa-solid fa-xmark font-logo background-color-logo p-2 rounded-circle"></i>
                 </button>
                 <div className="modal-body mt-4">
-                  <AdminPortal /> {/* Your AdminPortal component */}
+                  <AdminPortal handleModal={handleModal} /> {/* Your AdminPortal component */}
                 </div>
               </div>
             </div>
