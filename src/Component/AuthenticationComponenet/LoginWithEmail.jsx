@@ -77,9 +77,9 @@ const LoginWithEmail = () => {
                   <i className="fab fa-google font-logo background-color-logo p-2 rounded-circle"></i>
                 </button>
 
-                <Link to="/" className="btn btn-link btn-floating mx-1">
+                {/* <Link to="/" className="btn btn-link btn-floating mx-1">
                   <i className="fa-solid fa-phone font-logo background-color-logo p-2 rounded-circle"></i>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
