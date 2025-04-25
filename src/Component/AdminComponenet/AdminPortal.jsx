@@ -68,7 +68,7 @@ const AdminPortal = ({handleModal}) => {
         />
                
 
-        <ClickableCard
+        {/* <ClickableCard
             url={`/admin/user`}
             text={"User"}
             ficon={"fa-solid fa-user"}
@@ -78,7 +78,7 @@ const AdminPortal = ({handleModal}) => {
             url={`/admin/analytix`}
             text={"Analytix"}
             ficon={"fa-solid fa-chart-simple"}
-        />
+        /> */}
 
         
         
